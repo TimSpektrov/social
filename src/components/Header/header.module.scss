@@ -1,0 +1,15 @@
+@import "src/main.global";
+.header {
+  background-color: $color_gold_250;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+}
+
+.img {
+  max-width: 200px;
+  height: auto;
+}

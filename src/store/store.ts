@@ -1,23 +1,34 @@
-import {combineReducers} from "redux";
 import {configureStore} from "@reduxjs/toolkit";
-import userReducer from './reducers/User.ts'
-import {postApi} from "../services/PostService.ts";
+import {userRequest} from "../services/PostService";
 
 
-
-const rootReducer = combineReducers({
-    userReducer,
-    // [postApi.reducerPath]: postApi.reducer
+export const store = configureStore({
+    reducer: {
+        // userReducer,
+        [userRequest.reducerPath]: userRequest.reducer,
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(userRequest.middleware)
 })
 
-export const setupStore = () => {
-    return configureStore({
-        reducer: rootReducer,
-        middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware().concat(postApi.middleware)
-    })
-}
+//
+//
+// const rootReducer = combineReducers({
+//     userReducer,
+//     [postsApi.reducerPath]: postsApi.reducer
+//
+// })
+//
+// export const setupStore = () => {
+//     return configureStore({
+//         reducer: rootReducer,
+//         middleware: (getDefaultMiddleware) =>
+//             getDefaultMiddleware().concat(postsApi.middleware)
+//     })
+// }
 
 export type RootState = ReturnType<typeof rootReducer>
 export type AppStore = ReturnType<typeof setupStore>
 export type AppDispatch = AppStore['dispatch']
+
+// setupListeners(store.dispatch)

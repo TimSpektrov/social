@@ -6,5 +6,4 @@ export interface IUser {
     lastName: string,
     gender: string,
     image: string,
-    token: string,
 }

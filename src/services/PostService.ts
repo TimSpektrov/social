@@ -1,18 +1,18 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const postApi = createApi({
-    reducerPath: 'postApi',
+export const userRequest = createApi({
+    reducerPath: 'userRequest',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://dummyjson.com/'
-    }),
+        baseUrl: 'https://dummyjson.com'}
+    ),
     endpoints: (build) => ({
-        fetchAllPosts: build.query<IPost[], number>({
-            query: (limit: number = 10) => ({
-                url: '/posts',
-                headers: {'Authorization': `Bearer ${localStorage.token}`},
-
+        userLogin: build.mutation({
+            query: ({username, password}) => ({
+                url: '/auth/login',
+                body: {username, password}
             })
         })
     })
 });
 
+export const {useUserLoginMutation} = userRequest;

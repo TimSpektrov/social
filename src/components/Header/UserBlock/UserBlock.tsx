@@ -1,11 +1,25 @@
 import styles from './userblock.module.scss';
-import {useAppSelector} from "../../../hooks/redux.ts";
+import {useAppDispatch, useAppSelector} from "../../../hooks/redux.ts";
 import {Link} from "react-router-dom";
 import cn from "classnames";
+import {useEffect} from "react";
+import {fetchUser} from "../../../store/reducers/ActionCreators.ts";
 
 
 export function UserBlock() {
-    const user = useAppSelector(state => state.userReducer.user)
+    const dispatch = useAppDispatch()
+    const {user, isLoading, error} = useAppSelector(state => state.userReducer)
+
+    useEffect(() => {
+        dispatch(fetchUser({username: 'vniir', password: '12345'}))
+    }, [])
+
+    if(isLoading) {
+        return (<p className={styles.userNoName}>{'Loading...'}</p>)
+    }
+    if(error) {
+        return (<p className={styles.userNoName}>{`error`}</p>)
+    }
   return (
       <Link to={user ? '/user' : '/auth'} className={styles.user}>
         <img

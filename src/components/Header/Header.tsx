@@ -9,7 +9,7 @@ export function Header() {
       <div className={classNames(styles.header__container, "container")}>
         <img
           className={styles.img}
-          src="https://fineproxy.org/wp-content/uploads/2023/07/reddit.com_logo.png"
+          src="src/assets/img/reddit.png"
           alt="logo"
         />
         <Userblock />

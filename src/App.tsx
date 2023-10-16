@@ -1,7 +1,7 @@
 import './App.css'
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import {Layout} from "./components/Layout";
-import {Home} from "./pages/Home";
+
 import {Posts} from "./pages/Posts";
 import {Notfound} from "./pages/Notfound";
 import {Login} from "./pages/Login";
@@ -13,18 +13,14 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={
-          <RequireAuth>
-            <Layout />
-          </RequireAuth>
-        }>
-          <Route index element={<Home />} />
-          <Route path='auth' element={<Login />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Navigate to="posts" replace={true}/>} />
           <Route path='posts' element={
             <RequireAuth>
               <Posts />
             </RequireAuth>
           }/>
+          <Route path='auth' element={<Login />} />
         </Route>
         <Route path='*' element={<Notfound />} />
       </Routes>

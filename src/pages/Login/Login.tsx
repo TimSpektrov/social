@@ -1,22 +1,33 @@
 
 import styles from './login.module.scss';
 import { useForm } from 'react-hook-form';
-import {useLoginMutation} from "../../services/api.ts";
 import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux.ts";
+import {fetchUser} from "../../store/user/actions.ts";
+import {IUserFetch} from "../../types/IUser.ts";
 
 export function Login() {
-  // const navigate = useNavigate();
-  // const location = useLocation();
-  //
-  // const fromPage = location.state?.from?.pathname || '/';
-
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    reset,
+    formState: { errors },
   } = useForm();
-  const [login,{isLoading, error}] = useLoginMutation()
+
   const [ showError, setShowError ] = useState(false);
+  const {user ,isLoading, error} = useAppSelector(state => state.userReducer);
+
+  useEffect(() => {
+    reset()
+  }, [user])
+
+  if(user) {
+    navigate('/', {replace: true});
+  }
+
   useEffect(()=>{
     if(error) {
       setShowError(true);
@@ -30,16 +41,15 @@ export function Login() {
     }
   },[error]);
 
-  const onSubmit = (data) => {
-    console.log(data)
-    let user = {
+  const onSubmit = (data: IUserFetch) => {
+    const user = {
       username: 'kminchelle',
       password: '0lelplR',
     }
     if (data.username === 'vniir' && data.password === '12345') {
-      login(user)
+      dispatch(fetchUser(user))
     } else {
-      login(data)
+      dispatch(fetchUser(data))
     }
   };
 

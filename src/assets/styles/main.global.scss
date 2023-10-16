@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+  $color_azure_a100: #0077ff;
+  $color_azure_300: #397dcc;
+  $color_azure_a400: #2a6fbd;
+  $color_azure_a500: #2363aa;
+  $color_black: #000000;
+  $color_black_blue10: #000c1a;
+  $color_black_blue24: #001c3d;
+  $color_blue_400: #5181b8;
+  $color_blue_a400: #447bba;
+  $color_blue_420: #4a76a8;
+  $color_blue_550: #346297;
+  $color_blue_600: #2a5885;
+  $color_blue_640: #224b7a;
+  $color_blue_800: #1d3a5c;
+  $color_blue_bright: #5c9ce6;
+  $color_brown_gold: #9e8f72;
+  $color_brown_light: #c2b79f;
+  $color_gold_200: #f4e7c3;
+  $color_gold_250: #e3d3ac;
+  $color_gold_300: #d1c097;
+  $color_gold_400: #ab9871;
+  $color_gold_500: #857250;
+  $color_gray_20: #f9f9f9;
+  $color_gray_40: #f5f5f5;
+  $color_gray_70: #555555;
+  $color_gray_100: #e1e3e6;
+  $color_gray_200: #cccccc;
+  $color_gray_300: #b2b2b2;
+  $color_gray_400: #939393;
+  $color_gray_500: #828282;
+  $color_gray_600: #656565;
+  $color_gray_700: #555555;
+  $color_gray_750: #424242;
+  $color_gray_800: #333333;
+  $color_gray_850: #292929;
+  $color_gray_900: #222222;
+  $color_gray_940: #141414;
+  $color_gray_960: #0a0a0a;
+  $color_green_350: #4bb34b;
+  $color_green_400: #43a843;
+  $color_green_600: #1b7a1b;
+  $color_green_light: #def0d3;
+  $color_green_nice: #3dcc4b;
+  $color_light_blue_40: #e5ebf1;
+  $color_light_blue_80: #dfe6ed;
+  $color_light_blue_100: #dae2ea;
+  $color_light_blue_300: #9eb4c8;
+  $color_light_blue_400: #7996b2;
+  $color_light_blue_500: #577ca1;
+  $color_light_blue_700: #45688e;
+  $color_light_blue_A300: #8fadc8;
+  $color_neon_pink: #f45fff;
+  $color_orange: #ffa000;
+  $color_orange_tint: #f9b54f;
+  $color_orange_light: #ffc062;
+  $color_orange_fire: #f05c44;
+  $color_orange_prominent: #ff724c;
+  $color_raspberry_pink: #e03fab;
+  $color_raspberry_pink_light: #f060c0;
+  $color_purple: #735ce6;
+  $color_purple_light: #937ff5;
+  $color_pink: #e6457a;
+  $color_pink_light: #faebeb;
+  $color_red: #e64646;
+  $color_red_dark: #db3b3b;
+  $color_red_light: #ff5c5c;
+  $color_red_nice: #ff3347;
+  $color_sky_60: #cce9ff;
+  $color_sky_80: #b2deff;
+  $color_sky_100: #99d3ff;
+  $color_sky_200: #70c1ff;
+  $color_sky_300: #71aaeb;
+  $color_steel_gray_10: #fafbfc;
+  $color_steel_gray_20: #f7f8fa;
+  $color_steel_gray_40: #f0f2f5;
+  $color_steel_gray_50: #eeeff1;
+  $color_steel_gray_60: #edeef0;
+  $color_steel_gray_80: #e7e8ec;
+  $color_steel_gray_100: #dce1e6;
+  $color_steel_gray_120: #d3d9de;
+  $color_steel_gray_140: #c5d0db;
+  $color_steel_gray_200: #aeb7c2;
+  $color_steel_gray_300: #99a2ad;
+  $color_steel_gray_400: #818c99;
+  $color_steel_gray_500: #6f7985;
+  $color_steel_gray_540: #626d7a;
+  $color_steel_gray_600: #4e5966;
+  $color_steel_gray_A540: #55677d;
+  $color_turquoise: #63b9ba;
+  $color_violet: #792ec0;
+  $color_violet_dark: #1f1b2c;
+  $color_violet_light: #a393f5;
+  $color_violet_muted: #4b4d61;
+  $color_white: #ffffff;
+  $color_white_blue20: #cce4ff;
+  $color_white_blue32: #add3ff;
+  $color_yellow: #ffc107;
+  $color_yellow_light: #faefd2;
+  $color_yellow_overlight: #fff2d6;
+  $color_lavender_100: #e6e9ff;
+  $color_lavender_200: #ccd3ff;
+  $color_lavender_300: #adb8ff;
+  $color_lavender_700: #5965b3;
+  $color_lavender_800: #404980;
+  $color_lavender_900: #262b4d;
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: $color_gold_200;
+}
+
+.container {
+  @media screen and (max-width: 599.5px) {
+    padding: 15px;
+  }
+  @media screen and (min-width: 600px) and (max-width: 1199.5px) {
+    padding: 30px 50px;
+  }
+  @media screen and (min-width: 1200px){
+    padding: 35px 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}

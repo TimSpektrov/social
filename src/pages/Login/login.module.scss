@@ -1,0 +1,93 @@
+@import "src/assets/styles/main.global";
+$fzLabel: 18px;
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  position: relative;
+  width: 300px;
+  padding: 20px;
+  background-color: $color_gold_200
+}
+
+.label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: $fzLabel;
+}
+
+.input {
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: $fzLabel;
+  transition: background-color .2s ease-in-out, border .2s ease-in-out;
+
+  &:focus,
+  &:active {
+    outline: none;
+    border: 1px solid $color_green_400;
+  }
+
+  &:hover {
+    background-color: rgba(255,255,255,.8);
+  }
+}
+
+.error {
+  position: absolute;
+  top: $fzLabel;
+  left: 20PX;
+  color:  $color_red;
+  font-size: 12px;
+}
+
+.submit {
+
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  //border: 1px solid transparent;
+  border: 1px solid transparent;
+  background-color: $color_green_400;
+  color: $color_white;
+  font-size: $fzLabel;
+  cursor: pointer;
+  opacity: .9;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: inset 0 0 0 1px $color_white;
+  }
+}
+
+.error-request {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  transform: translate(-50%, calc(-50% - 150px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap : 10px;
+  background-color: $color_white;
+  padding: 20px;
+  font-size: $fzLabel;
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
+
+  & img {
+    width: 40px;
+    height: auto;
+  }
+}

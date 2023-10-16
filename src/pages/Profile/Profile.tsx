@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './ppofile.css';
+import styles from './profile.module.scss';
 
-export function Ppofile() {
+export function Profile() {
   return (
 
   );

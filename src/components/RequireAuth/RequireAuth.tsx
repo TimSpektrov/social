@@ -1,5 +1,5 @@
 import {Navigate, useLocation} from "react-router-dom";
-import {ReactNode} from "react";
+import {ReactNode, useEffect, useState} from "react";
 
 interface IRequireAuth {
   children: ReactNode;
@@ -7,9 +7,14 @@ interface IRequireAuth {
 
 export function RequireAuth({children}: IRequireAuth) {
   const location = useLocation();
-  const auth = false;
-  if(!auth) {
-    return <Navigate to={'/auth'} state={{from: location}} />
-  }
+  const [auth, setAuth] = useState(false);
+
+  // useEffect(() => {
+  //   if(!auth) {
+  //     setAuth(!auth)
+  //     return <Navigate to={'/auth'} state={{from: location}} />
+  //   }
+  // },[])
+
   return children
 }

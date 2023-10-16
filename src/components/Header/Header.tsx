@@ -12,8 +12,9 @@ export function Header() {
           src="https://fineproxy.org/wp-content/uploads/2023/07/reddit.com_logo.png"
           alt="logo"
         />
+        <Userblock />
       </div>
-      <Userblock />
+
     </header>
   );
 }

@@ -7,7 +7,7 @@ import {Notfound} from "./pages/Notfound";
 import {Login} from "./pages/Login";
 
 import {Profile} from "./pages/Profile";
-import {AUTH_LINK, PROFILE_LINK} from "./constans/API.ts";
+import {AUTH_LINK, POSTS_API, PROFILE_LINK} from "./constans/API.ts";
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="posts" replace={true}/>} />
-          <Route path='posts' element={<Posts />}/>
+          <Route path={POSTS_API} element={<Posts />}/>
           <Route path={AUTH_LINK} element={<Login />} />
           <Route path={PROFILE_LINK} element={<Profile />} />
           {/*// <RequireAuth>*/}

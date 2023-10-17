@@ -8,7 +8,7 @@ interface UserState {
 }
 
 const initialState: UserState = {
-  user: null,
+  user: localStorage.user ? JSON.parse(localStorage.user) : null,
   isLoading: false,
   error: '',
 }
@@ -27,6 +27,9 @@ export const userSlice = createSlice({
     userFetchingError(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
+    },
+    userLogout(state) {
+        state.user = null
     }
   },
 })

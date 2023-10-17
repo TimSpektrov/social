@@ -22,11 +22,10 @@ export function Login() {
 
   useEffect(() => {
     reset()
+    if(user) {
+      navigate('/', {replace: true});
+    }
   }, [user])
-
-  if(user) {
-    navigate('/', {replace: true});
-  }
 
   useEffect(()=>{
     if(error) {

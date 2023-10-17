@@ -1,0 +1,44 @@
+@import "src/assets/styles/main.global";
+
+.profile {
+  display: flex;
+  gap: 30px;
+
+  @media (max-width: 767.5px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+.image {
+  max-width: 400px;
+  height: auto;
+  border: 3px solid $color_gold_500;
+}
+
+.info {
+  @media (min-width: 768px) {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+
+  }
+
+  td {
+    padding: 5px 10px;
+  }
+}
+
+.title {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.name {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  font-weight: 700;
+}

@@ -3,11 +3,12 @@ import styles from './userblock.module.scss';
 import {Link} from "react-router-dom";
 import * as classNames from "classnames";
 import {useAppSelector} from "../../../hooks/redux.ts";
+import {AUTH_LINK, PROFILE_LINK} from "../../../constans/API.ts";
 
 export function Userblock() {
   const user = useAppSelector(state => state.userReducer.user);
   return (
-    <Link to={user ? '/user' : '/auth'} className={styles.user}>
+    <Link to={user ? PROFILE_LINK : AUTH_LINK} className={styles.user}>
       <img
         src={user ? user.image : "https://artkostyuk.com/wp-content/uploads/avatar.png"}
 

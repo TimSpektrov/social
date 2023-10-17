@@ -13,3 +13,25 @@
   margin-bottom: 1em;
   border-bottom: 1px solid $color_gold_300;
 }
+
+.description {
+  margin-bottom: 1em;
+  line-height: 1.5em;
+}
+
+.list {
+  display: flex;
+  gap: 5px;
+
+}
+
+.item {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 2px solid $color_gold_500;
+  background-color: #fff;
+}
+
+.author {
+  text-align: right;
+}

@@ -28,4 +28,4 @@ export const api = createApi({
 })
 
 // Экспортируются хуки для использования в компонентах
-
+export const { useFetchAllPostsQuery } = api

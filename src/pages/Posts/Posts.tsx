@@ -1,14 +1,23 @@
 
 import styles from './posts.module.scss';
 import {IPost} from "../../types/IPost.ts";
-import {api} from "../../services/api.ts";
 import {Card} from "../../components/Card";
 import {useAppSelector} from "../../hooks/redux.ts";
+import {useFetchAllPostsQuery} from "../../services/api.ts";
+import {useEffect} from "react";
+import {useNavigate} from "react-router-dom";
+import {AUTH_LINK} from "../../constans/API.ts";
 
 export function Posts() {
   const user = useAppSelector(state => state.userReducer.user);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!user) {
+        navigate(AUTH_LINK, {replace: true});
+    }
+  })
+  const {data, isLoading, error} =  useFetchAllPostsQuery('');
 
-  const {data, isLoading, error} = user ? api.useFetchAllPostsQuery() : {data: null, isLoading: false, error: {message: 'Авторизуйтесь'}};
 
   return (
     <>
@@ -22,7 +31,7 @@ export function Posts() {
       </ul>
 
       {isLoading && <div>Loading...</div>}
-      {error && <div>{error.message}</div>}
+      {error && <div>Ошибка загрузки постов</div>}
     </>
   );
 }

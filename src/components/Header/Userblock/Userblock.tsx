@@ -1,6 +1,6 @@
 
 import styles from './userblock.module.scss';
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {Link,  useMatch, useNavigate} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux.ts";
 import {AUTH_LINK, PROFILE_LINK} from "../../../constans/API.ts";
 import {useEffect} from "react";
@@ -9,9 +9,9 @@ import {userSlice} from "../../../store/user/userSlice.ts";
 export function Userblock() {
   const user = useAppSelector(state => state.userReducer.user);
   const dispatch = useAppDispatch();
-  const location = useLocation()
+    const match = useMatch(PROFILE_LINK)
   const navigate = useNavigate();
-
+    console.log(match)
   const handleClick = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -36,7 +36,7 @@ export function Userblock() {
       )
   }
 
-  if (location.pathname === PROFILE_LINK) {
+  if (match) {
       return (
           <button className={styles.logOutBtn} onClick={handleClick}>
               <img

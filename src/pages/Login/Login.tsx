@@ -1,6 +1,6 @@
 
 import styles from './login.module.scss';
-import { useForm } from 'react-hook-form';
+import { useForm} from 'react-hook-form';
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux.ts";
@@ -15,7 +15,7 @@ export function Login() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm<IUserFetch>();
 
   const [ showError, setShowError ] = useState(false);
   const {user ,isLoading, error} = useAppSelector(state => state.userReducer);

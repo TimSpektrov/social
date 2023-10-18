@@ -27,7 +27,7 @@ export function Userblock() {
       match ? (
         <button className={styles.logOutBtn} onClick={handleClick}>
           <img
-            src={"src/assets/img/logOut.jpg"}
+            src={".src/assets/img/logOut.jpg"}
             alt='log out'
             className={styles.avatar}
           />
@@ -47,7 +47,7 @@ export function Userblock() {
         ) : (
         <Link to={AUTH_LINK} className={styles.user}>
           <img
-            src={"src/assets/img/noUser.png"}
+            src={".src/assets/img/noUser.png"}
             alt='user avatar'
             className={styles.avatar}
           />

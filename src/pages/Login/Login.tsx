@@ -75,7 +75,7 @@ export function Login() {
 
       <button className={styles.submit} type="submit">{isLoading ? 'Загрузка...' : 'Войти'}</button>
       {showError && <div className={styles['error-request']}>
-          <img src="src/assets/img/error.svg" alt="красный крест"/>
+          <img src=".src/assets/img/error.svg" alt="красный крест"/>
           <span>Ошибка входа</span>
       </div>}
     </form>

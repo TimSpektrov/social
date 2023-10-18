@@ -3,11 +3,12 @@ import styles from './post.module.scss';
 import {useParams} from "react-router-dom";
 import {useFetchPostIdQuery} from "../../services/api.ts";
 import {Comments} from "./Comments";
+import {AddComment} from "./AddComment";
 
 export function Post() {
   const { id } = useParams();
   const { data, isLoading, error} =  useFetchPostIdQuery(id);
-  // console.log(data)
+
   return (
     <>
       {data && (
@@ -20,13 +21,12 @@ export function Post() {
             ))}
           </ul>
           <div className={styles.author}>author id: {data.userId}</div>
-          <p>Comments</p>
           <Comments id={data.id} />
+          <AddComment id={data.id} />
         </div>
       )}
       {isLoading && <div>Loading...</div>}
       {error && <div>Ошибка загрузки постов</div>}
     </>
-
   );
 }

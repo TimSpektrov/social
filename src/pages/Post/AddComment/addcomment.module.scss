@@ -1,0 +1,40 @@
+@import "src/assets/styles/main.global.scss";
+$firstColor: $color_gold_200;
+$secondaryColor: $color_gold_500;
+.button,
+.submit {
+  padding: 10px 50px;
+  min-width: 33%;
+  margin-bottom: 1em;
+  font-family: inherit;
+}
+
+.button {
+  border: 1px solid $secondaryColor;
+  color: $secondaryColor;
+  background-color: $firstColor;
+}
+
+.submit {
+  border: 1px solid $firstColor;
+  color: $firstColor;
+  background-color: $secondaryColor;
+}
+
+.textarea {
+  width: 100%;
+  resize: none;
+  font-family: inherit;
+  padding: 1em;
+  margin-bottom: .5em;
+  box-sizing: border-box;
+
+  &:focus {
+      outline: none;
+      border-color: $secondaryColor;
+  }
+
+  &.input-error {
+    border-color: $color_red_dark;
+  }
+}

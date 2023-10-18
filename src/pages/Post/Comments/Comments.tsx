@@ -1,9 +1,10 @@
 import styles from './comments.module.scss';
 import {useFetchPostCommentsQuery} from "../../../services/api.ts";
+import {useAppSelector} from "../../../hooks/redux.ts";
 
 interface IComments {
   id: string
-};
+}
 interface ICommentData {
   id: number;
   body: string;
@@ -12,13 +13,25 @@ interface ICommentData {
     id: number;
     username: string
   };
-};
+}
 export function Comments({id}: IComments) {
   const { data, isLoading, error} =  useFetchPostCommentsQuery(id);
+  // так как при добавлении комментария в базу он не добавляется, то добавлен костыль добавления элементов для наглядности
+  const addComment = useAppSelector(state => state.addCommentReducer.comment);
+
+
+
   return (
     <>
+      <p className={styles.subtitle}>Comments</p>
       <ul className={styles.list}>
         {data && data.comments.map((comment: ICommentData)=> (
+          <li className={styles.item} key={comment.id}>
+            <span className={styles.author}>{comment.user.username}</span>
+            <p className={styles.comment}>{comment.body}</p>
+          </li>
+        ))}
+        {addComment.map((comment: ICommentData)=> (
           <li className={styles.item} key={comment.id}>
             <span className={styles.author}>{comment.user.username}</span>
             <p className={styles.comment}>{comment.body}</p>

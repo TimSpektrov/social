@@ -1,0 +1,22 @@
+.list {
+  padding-left: 20px;
+  list-style: none;
+}
+
+.item {
+  line-height: 1.5em;
+  &:not(:last-child) {
+    margin-bottom: 1em;
+  }
+}
+
+.author {
+  font-style: italic;
+}
+
+.comment {
+  &:before {
+    content: '— ';
+  }
+}
+

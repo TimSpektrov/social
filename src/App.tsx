@@ -23,7 +23,6 @@ function App() {
           <Route path={PROFILE_LINK} element={<Profile />} />
         </Route>
         <Route path='*' element={<Notfound />} />
-        <Route path='/social' element={<Navigate to="/" replace />} />
       </Routes>
     </>
   )

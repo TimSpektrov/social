@@ -7,9 +7,30 @@
     align-items: center;
     //padding: 20px;
   }
+
+  &__buttonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  &__button {
+    padding: 5px 15px;
+    border: 1px solid transparent;
+    background-color: $color_gold_500;
+    color: $color_white;
+    font-family: inherit;
+    opacity: 1;
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+
+    &:hover {
+        opacity: .8;
+    }
+    &:focus {
+      outline: none;
+      transform: scale(1.1);
+    }
+  }
 }
 
-.img {
-  max-width: 200px;
-  height: auto;
-}

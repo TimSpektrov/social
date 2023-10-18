@@ -1,17 +1,29 @@
 
 import styles from './header.module.scss';
-import * as classNames from "classnames";
+import classNames from "classnames";
 import {Userblock} from "./Userblock";
+import {useNavigate} from "react-router-dom";
+
 
 export function Header() {
+  const navigate = useNavigate();
   return (
     <header className={styles.header}>
       <div className={classNames(styles.header__container, "container")}>
-        <img
-          className={styles.img}
-          src="src/assets/img/reddit.png"
-          alt="logo"
-        />
+        <div className={styles.header__buttonGroup}>
+          <button
+            className={styles.header__button}
+            type={'button'}
+            onClick={() => navigate(-1)}
+          >Назад</button>
+
+          <button
+            className={styles.header__button}
+            type={'button'}
+            onClick={() => navigate('/')}
+          >На главную</button>
+        </div>
+
         <Userblock />
       </div>
 

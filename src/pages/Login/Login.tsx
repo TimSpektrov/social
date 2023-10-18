@@ -55,10 +55,13 @@ export function Login() {
   return (
   <div className={styles['form-container']}>
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)} >
-
         <label className={styles.label}>
           <span className={styles.name}>Имя пользователя</span>
-          <input className={styles.input} {...register('username', { required: true })} placeholder={'vniir'}/>
+          <input
+            className={styles.input}
+            {...register('username', { required: true })}
+            placeholder={'vniir'}
+          />
           {errors.username && <span className={styles.error}>Поле {errors.username.type === 'required' && 'Введите имя'}</span>}
         </label>
 

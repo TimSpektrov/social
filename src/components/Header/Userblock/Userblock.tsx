@@ -9,9 +9,8 @@ import {userSlice} from "../../../store/user/userSlice.ts";
 export function Userblock() {
   const user = useAppSelector(state => state.userReducer.user);
   const dispatch = useAppDispatch();
-    const match = useMatch(PROFILE_LINK)
+  const match = useMatch(PROFILE_LINK)
   const navigate = useNavigate();
-    console.log(match)
   const handleClick = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -22,41 +21,39 @@ export function Userblock() {
       navigate(AUTH_LINK, {replace: true});
   }, [user])
 
-  if (!user) {
-      return (
-      <Link to={AUTH_LINK} className={styles.user}>
+  return (
+    <>
+    {user ? (
+      match ? (
+        <button className={styles.logOutBtn} onClick={handleClick}>
           <img
-              src={"src/assets/img/noUser.png"}
-              alt='user avatar'
-              className={styles.avatar}
+            src={"src/assets/img/logOut.jpg"}
+            alt='log out'
+            className={styles.avatar}
+          />
+          <p className={styles.userAuth}>{'Выйти'}</p>
+        </button>
+      ) : (
+        <Link to={PROFILE_LINK} className={styles.user}>
+          <img
+            src={user.image}
+            alt='user avatar'
+            className={styles.avatar}
+          />
+
+          <p className={styles.userAuth}>{`${user.firstName} ${user.lastName[0]}`}</p>
+        </Link>
+      )
+        ) : (
+        <Link to={AUTH_LINK} className={styles.user}>
+          <img
+            src={"src/assets/img/noUser.png"}
+            alt='user avatar'
+            className={styles.avatar}
           />
 
           <p className={styles.userNoName}>{'Авторизоваться'}</p>
-      </Link>
-      )
-  }
-
-  if (match) {
-      return (
-          <button className={styles.logOutBtn} onClick={handleClick}>
-              <img
-                  src={"src/assets/img/logOut.jpg"}
-                  alt='log out'
-                  className={styles.avatar}
-              />
-              <p className={styles.userAuth}>{'Выйти'}</p>
-          </button>
-      )
-  }
-  return (
-    <Link to={PROFILE_LINK} className={styles.user}>
-      <img
-        src={user.image}
-        alt='user avatar'
-        className={styles.avatar}
-      />
-
-      <p className={styles.userAuth}>{`${user.firstName} ${user.lastName[0]}`}</p>
-    </Link>
-  );
-}
+        </Link>
+      )}
+    </>
+  )}

@@ -110,7 +110,10 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: $color_gold_200;
 }
-
+a, button {
+  cursor: pointer;
+  outline: none;
+}
 .container {
   @media screen and (max-width: 599.5px) {
     padding: 15px;
@@ -128,4 +131,9 @@ body {
 .main {
   min-height: calc(100vh - 400px);
   background-color: #fff;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
 }

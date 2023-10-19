@@ -30,7 +30,6 @@ export const addCommentSlice = createSlice({
       state.isLoading = true;
     },
     addCommentFetchingSuccess(state, action: PayloadAction<IFetchComment>) {
-      console.log(action.payload)
       state.isLoading = false;
       state.comment = [...state.comment, action.payload];
       state.error = '';

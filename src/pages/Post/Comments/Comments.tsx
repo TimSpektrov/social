@@ -19,7 +19,7 @@ export function Comments({id}: IComments) {
 
   // так как при добавлении комментария в базу он не добавляется, то добавлен костыль добавления элементов для наглядности
   const addComment = useAppSelector(state => state.addCommentReducer.comment);
-  console.log(addComment)
+
   return (
     <>
       <p className={styles.subtitle}>Comments</p>

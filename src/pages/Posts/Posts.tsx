@@ -5,7 +5,6 @@ import {Card} from "../../components/Card";
 import {useFetchAllPostsQuery} from "../../services/api.ts";
 export function Posts() {
   const {data, isLoading, error} =  useFetchAllPostsQuery('');
-  console.log(data)
 
   return (
     <>

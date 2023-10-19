@@ -36,6 +36,38 @@
   background-color: #fff;
 }
 
-.author {
-  text-align: right;
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.like {
+  display: flex;
+  gap: 10px;
+}
+
+
+.like-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  opacity: .8;
+  transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus {
+    transform: scale(1.1    );
+  }
+
+  & img {
+    height: 20px;
+    width: auto;
+  }
+}
+
+.like-number {
+  font-size: 23px;
+  line-height: 1em;
 }

@@ -20,6 +20,7 @@ function App() {
           <Route path={`${POSTS_API}/:id`} element={ <Post />}/>
           <Route path={AUTH_LINK} element={<Login />} />
           <Route path={PROFILE_LINK} element={<Profile />} />
+          <Route path={'social'} element={<Navigate to={POSTS_API}/>} />
         </Route>
         <Route path='*' element={<Notfound />} />
       </Routes>

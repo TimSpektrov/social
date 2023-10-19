@@ -8,8 +8,6 @@ import {Profile} from "./pages/Profile";
 import {AUTH_LINK, POSTS_API, PROFILE_LINK} from "./constans/API.ts";
 import {RequireAuth} from "./components/RequireAuth";
 import {Post} from "./pages/Post";
-import {RequireAuth} from "./components/RequireAuth";
-
 
 function App() {
 

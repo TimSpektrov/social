@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux.ts";
 import {fetchUser} from "../../store/user/actions.ts";
 import {IUserFetch} from "../../types/IUser.ts";
+import errorImg from "../../assets/img/error.svg";
 
 export function Login() {
   const dispatch = useAppDispatch()
@@ -72,7 +73,7 @@ export function Login() {
 
       <button className={styles.submit} type="submit">{isLoading ? 'Загрузка...' : 'Войти'}</button>
       {showError && <div className={styles['error-request']}>
-          <img src="src/assets/img/error.svg" alt="красный крест"/>
+          <img src={errorImg} alt="красный крест"/>
           <span>Ошибка входа</span>
       </div>}
     </form>

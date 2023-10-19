@@ -9,7 +9,14 @@
   }
 }
 
-.img {
-  max-width: 200px;
-  height: auto;
+.buttonGroup {
+  display: flex;
+  min-width: 150px;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 5px;
 }
+
+
+
+

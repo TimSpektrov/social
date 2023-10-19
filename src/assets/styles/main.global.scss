@@ -111,6 +111,11 @@ body {
   background-color: $color_gold_200;
 }
 
+a, button {
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+}
 .container {
   @media screen and (max-width: 599.5px) {
     padding: 15px;
@@ -128,4 +133,14 @@ body {
 .main {
   min-height: calc(100vh - 400px);
   background-color: #fff;
+}
+
+.btn {
+  padding: 5px 15px;
+}
+
+.btn-primary {
+  background-color: $color_gold_500;
+  color: $color_white;
+  border: 1px solid $color_gold_500;
 }

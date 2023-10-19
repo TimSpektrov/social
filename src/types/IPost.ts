@@ -4,4 +4,5 @@ export interface IPost {
   body: string;
   tags: string[];
   userId: number;
+  reactions: number;
 }

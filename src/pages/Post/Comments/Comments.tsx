@@ -3,7 +3,7 @@ import {useFetchPostCommentsQuery} from "../../../services/api.ts";
 import {useAppSelector} from "../../../hooks/redux.ts";
 
 interface IComments {
-  id: string
+  id: number
 }
 interface ICommentData {
   id: number;
@@ -16,9 +16,10 @@ interface ICommentData {
 }
 export function Comments({id}: IComments) {
   const { data, isLoading, error} =  useFetchPostCommentsQuery(id);
+
   // так как при добавлении комментария в базу он не добавляется, то добавлен костыль добавления элементов для наглядности
   const addComment = useAppSelector(state => state.addCommentReducer.comment);
-
+  console.log(addComment)
   return (
     <>
       <p className={styles.subtitle}>Comments</p>
@@ -29,7 +30,7 @@ export function Comments({id}: IComments) {
             <p className={styles.comment}>{comment.body}</p>
           </li>
         ))}
-        {addComment.map((comment: ICommentData)=> (
+        {addComment.filter(item => item.postId === id).map((comment: ICommentData)=> (
           <li className={styles.item} key={comment.id}>
             <span className={styles.author}>{comment.user.username}</span>
             <p className={styles.comment}>{comment.body}</p>
@@ -40,6 +41,5 @@ export function Comments({id}: IComments) {
       {isLoading && <div>Loading...</div>}
       {error && <div>Ошибка загрузки комментариев</div>}
     </>
-
   );
 }

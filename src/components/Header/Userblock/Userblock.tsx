@@ -23,7 +23,6 @@ export function Userblock() {
       navigate(AUTH_LINK, {replace: true});
   }, [user])
 
-
   return (
     <>
     {user ? (

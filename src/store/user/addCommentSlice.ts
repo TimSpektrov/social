@@ -1,37 +1,45 @@
-import {IUser} from "../../types/IUser.ts";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
-interface UserState {
-  user: IUser | null;
+interface IFetchComment {
+  id: number;
+  body: string;
+  postId: number;
+  user: {
+    id: number;
+    username: string;
+  };
+}
+
+interface AddCommentState {
+  comment: IFetchComment[];
   isLoading: boolean;
   error: string;
 }
 
-const initialState: UserState = {
-  user: localStorage.user ? JSON.parse(localStorage.user) : null,
+const initialState: AddCommentState = {
+  comment: [],
   isLoading: false,
   error: '',
 }
 
-export const userSlice = createSlice({
-  name: 'user',
+export const addCommentSlice = createSlice({
+  name: 'addComment',
   initialState,
   reducers: {
-    userFetching(state) {
+    addCommentFetching(state) {
       state.isLoading = true;
     },
-    userFetchingSuccess(state, action: PayloadAction<IUser>) {
+    addCommentFetchingSuccess(state, action: PayloadAction<IFetchComment>) {
+      console.log(action.payload)
       state.isLoading = false;
-      state.user = action.payload;
+      state.comment = [...state.comment, action.payload];
+      state.error = '';
     },
-    userFetchingError(state, action: PayloadAction<string>) {
+    addCommentFetchingError(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },
-    userLogout(state) {
-        state.user = null
-    }
   },
 })
 
-export default userSlice.reducer;
+export default addCommentSlice.reducer;

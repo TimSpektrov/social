@@ -11,9 +11,8 @@ import logOut from "../../../assets/img/logOut.jpg";
 export function Userblock() {
   const user = useAppSelector(state => state.userReducer.user);
   const dispatch = useAppDispatch();
-    const match = useMatch(PROFILE_LINK)
+  const match = useMatch(PROFILE_LINK)
   const navigate = useNavigate();
-    console.log(match)
   const handleClick = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -23,6 +22,7 @@ export function Userblock() {
   useEffect(()=> {
       navigate(AUTH_LINK, {replace: true});
   }, [user])
+
 
   return (
     <>

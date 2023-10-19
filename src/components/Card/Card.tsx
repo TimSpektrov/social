@@ -12,6 +12,7 @@ export function Card({post}: {post: IPost}) {
         ))}
         </ul>
         <div className={styles.author}>author id: {post.userId}</div>
+
     </div>
   );
 }

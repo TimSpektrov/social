@@ -9,10 +9,20 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={classNames(styles.header__container, "container")}>
-        <div className={styles.buttonGroup}>
-          <button className={classNames(styles.button, 'btn', 'btn-primary')} onClick={() => navigate(-1)}>Назад</button>
-          <button className={classNames(styles.button, 'btn', 'btn-primary')} onClick={() => navigate('/')}>На главную</button>
+        <div className={styles.header__buttonGroup}>
+          <button
+            className={styles.header__button}
+            type={'button'}
+            onClick={() => navigate(-1)}
+          >Назад</button>
+
+          <button
+            className={styles.header__button}
+            type={'button'}
+            onClick={() => navigate('/')}
+          >На главную</button>
         </div>
+
         <Userblock />
       </div>
 

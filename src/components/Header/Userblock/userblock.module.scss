@@ -1,6 +1,15 @@
 @import "src/assets/styles/main.global";
 .user {
   text-align: center;
+  text-decoration: none;
+  transition: color .2s ease-in-out;
+
+  &:hover {
+    text-decoration: underline;
+  }
+  &:focus {
+    color: $color_orange_fire;
+  }
 }
 
 .avatar {
@@ -10,7 +19,6 @@
 }
 
 .name {
-  text-decoration: none;
   color: $color_blue_800
 }
 

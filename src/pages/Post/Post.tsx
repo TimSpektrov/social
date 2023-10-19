@@ -8,7 +8,7 @@ import {AddComment} from "./AddComment";
 export function Post() {
   const { id } = useParams();
   const { data, isLoading, error} =  useFetchPostIdQuery(id);
-
+  console.log('post', id)
   return (
     <>
       {data && (
